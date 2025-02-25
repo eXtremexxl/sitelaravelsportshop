@@ -1,0 +1,318 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    padding-top: 70px; /* Подстраиваем под высоту navbar */
+}
+
+
+/* Контент должен растягиваться на всю доступную высоту */
+.main-content {
+    flex: 1;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.orders-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #fff;
+}
+
+.orders-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.orders-title {
+    font-size: 2.5rem;
+    color: #111;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.orders-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #ff2d55;
+}
+
+.no-orders {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    padding: 40px;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.order-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(17, 17, 17, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 45, 85, 0.2);
+}
+
+.order-header {
+    border-bottom: 2px solid #ff2d55;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.order-id {
+    font-size: 1.5rem;
+    color: #111;
+    margin: 0;
+}
+
+.order-date {
+    color: #666;
+    font-size: 1rem;
+    margin: 5px 0 0;
+}
+
+.order-items {
+    margin: 15px 0;
+}
+
+.order-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    font-size: 1.2rem;
+    color: #111;
+    margin: 0 0 5px;
+}
+
+.item-details {
+    color: #666;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.item-details strong {
+
+    font-weight: 600;
+}
+
+.order-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.order-total {
+    font-size: 1.2rem;
+    color: #111;
+}
+
+.order-total strong {
+
+}
+
+.order-status {
+    font-size: 1rem;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+/* Стили для разных статусов */
+.status.pending {
+    color: #d97706;
+    background: #fef3c7;
+}
+
+.status.processing {
+    color: #2563eb;
+    background: #dbeafe;
+}
+
+.status.completed {
+    color: #2f855a;
+    background: #e6fffa;
+}
+
+.status.cancelled {
+    color: #ff2d55;
+    background: #fff5f5;
+}
+
+.pagination-wrapper {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-nav {
+    display: inline-block;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Уменьшенный отступ между элементами */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.page-item {
+    margin: 0;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; /* Чуть меньше для компактности */
+    height: 36px;
+    padding: 0;
+    background: #fff;
+    color: #111;
+    border: 2px solid #111; /* Более толстая рамка для акцента */
+    border-radius: 50%; /* Круглые кнопки */
+    text-decoration: none !important;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; /* Для эффекта при наведении */
+}
+
+.page-link:hover {
+    background: #ff2d55;
+    color: #fff;
+    border-color: #ff2d55;
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
+
+.page-item.active .page-link {
+    background: #ff2d55;
+    color: #fff;
+    border-color: #ff2d55;
+    transform: scale(1.1); /* Активная страница чуть больше */
+    box-shadow: 0 2px 8px rgba(255, 45, 85, 0.3); /* Тень для выделения */
+}
+
+.page-item.disabled .page-link {
+    background: #f5f5f5;
+    color: #999;
+    border-color: #ddd;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Стрелки */
+.page-link[rel="prev"],
+.page-link[rel="next"] {
+    font-size: 0; /* Убираем текст */
+    position: relative;
+}
+
+.page-link[rel="prev"]::before,
+.page-link[rel="next"]::before {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.page-link[rel="prev"]::before {
+    content: "←";
+}
+
+.page-link[rel="next"]::before {
+    content: "→";
+}
+
+/* Эффект при наведении на стрелки */
+.page-link[rel="prev"]:hover::before,
+.page-link[rel="next"]:hover::before {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .page-link {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .page-link[rel="prev"]::before,
+    .page-link[rel="next"]::before {
+        font-size: 1rem;
+    }
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .orders-title {
+        font-size: 2rem;
+    }
+
+    .order-card {
+        padding: 15px;
+    }
+
+    .order-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-id {
+        font-size: 1.3rem;
+    }
+
+    .item-name {
+        font-size: 1.1rem;
+    }
+
+    .order-total {
+        font-size: 1.1rem;
+    }
+}

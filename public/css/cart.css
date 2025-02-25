@@ -1,0 +1,319 @@
+html, body {
+    height: 100%; /* Устанавливаем высоту 100% */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexbox для всей страницы */
+    flex-direction: column; /* Вертикальное расположение */
+    font-family: 'Poppins', sans-serif;
+    background: #f7f7f7;
+    min-height: 100vh; /* Минимум высота видимой области */
+}
+
+body {
+    padding-top: 70px; /* Подстраиваем под высоту navbar */
+    flex: 1; /* Body растягивается */
+    display: flex;
+    flex-direction: column; /* Убеждаемся, что body тоже flex-контейнер */
+}
+
+.main-content {
+    flex: 1; /* Растягивает основной контент, чтобы футер опустился вниз */
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.wrapper {
+    flex: 1 0 auto; /* Растягиваем wrapper, чтобы он занимал всё пространство */
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1 0 auto; /* Основной контент растягивается */
+    padding-top: 70px; /* Учитываем фиксированный navbar */
+}
+
+/* cart.css */
+/* cart.css */
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    font-family: 'Arial', sans-serif;
+    background: #fff; /* Белый фон */
+    color: #111; /* Черный текст для контраста */
+}
+
+.cart-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: #111; /* Черный как в хедере/футере */
+    margin-bottom: 40px;
+    font-size: 34px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.cart-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    width: 80px;
+    height: 3px;
+    background: #ff2d55; /* Красный акцент */
+}
+
+.cart-content {
+    background: #fff; /* Белый фон */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th {
+    background: #f5f5f5; /* Светло-серый для контраста с белым */
+    padding: 15px 20px;
+    text-align: left;
+    font-weight: 600;
+    color: #111; /* Черный текст */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.cart-item {
+    transition: background 0.2s ease;
+}
+
+.cart-item:hover {
+    background: #f9f9f9; /* Легкий серый при наведении */
+}
+
+.cart-product {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.product-image img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+    transform: scale(1.05);
+}
+
+.product-name {
+    font-size: 1.1rem;
+    color: #111; /* Черный текст */
+    font-weight: 500;
+}
+
+.price, .subtotal {
+    font-size: 1.1rem;
+    color: #111; /* Черный текст */
+    padding: 20px;
+}
+
+.quantity {
+    padding: 20px;
+}
+
+.quantity-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.quantity-btn {
+    background: #eee;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #111;
+    transition: background 0.2s ease;
+}
+
+.quantity-btn:hover {
+    background: #ff2d55; /* Красный при наведении */
+    color: #fff;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 8px;
+    border: none;
+    text-align: center;
+    font-size: 1rem;
+    background: #fff;
+    color: #111;
+    -webkit-appearance: none; /* Для Safari/Chrome */
+    -moz-appearance: textfield; /* Для Firefox */
+}
+
+/* Убираем стрелки для Webkit-браузеров (Chrome, Safari, Edge) */
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.update-btn {
+    background: #ff2d55; /* Красный основной */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.update-btn:hover {
+    background: #e02447; /* Темнее красного при наведении */
+}
+
+.actions {
+    padding: 20px;
+}
+
+.remove-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: #ff2d55;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.remove-btn:hover {
+    color: #fff;
+    background: #e02447;
+    transform: scale(1.1);
+}
+
+.cart-summary {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f5f5; /* Светло-серый для отличия от белого */
+    border-top: 1px solid #ddd;
+}
+
+.total {
+    font-size: 1.5rem;
+    color: #111; /* Черный текст */
+}
+
+.total span {
+    font-weight: 700;
+}
+
+.summary-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.checkout-btn, .clear-cart-btn {
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn {
+    background: #ff2d55; /* Красный основной */
+    color: #fff;
+}
+
+.checkout-btn:hover {
+    color:#fff;
+    background: #e02447;
+    transform: translateY(-2px);
+}
+
+.clear-cart-btn {
+    background: #eee;
+    color: #111;
+}
+
+.clear-cart-btn:hover {
+    background: #ff2d55; /* Красный при наведении */
+    color: #fff;
+}
+
+.empty-cart-container {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-cart {
+    font-size: 1.8rem;
+    color: #666; /* Серый для пустой корзины */
+    margin-bottom: 30px;
+}
+
+.continue-shopping-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #ff2d55; /* Красный основной */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.continue-shopping-btn:hover {
+    background: #e02447;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cart-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .cart-summary {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+.footer {
+    margin-top: auto; /* Прижимаем футер к низу */
+}

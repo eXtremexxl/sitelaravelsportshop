@@ -1,0 +1,162 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    padding-top: 70px; /* Подстраиваем под высоту navbar */
+}
+
+
+/* Контент должен растягиваться на всю доступную высоту */
+.main-content {
+    flex: 1;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+
+.account-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #fff;
+}
+
+.account-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.account-title {
+    font-size: 2.5rem;
+    color: #111;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.account-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #ff2d55;
+}
+
+.account-content {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(17, 17, 17, 0.1);
+    padding: 30px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: #111;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff2d55;
+    padding-bottom: 10px;
+}
+
+.account-info {
+    margin-bottom: 40px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.info-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #111;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.info-value {
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.account-button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.account-button:hover {
+    color: #fff;
+    background: #ff2d55;
+    transform: scale(1.02);
+}
+
+.logout-form {
+    width: 100%;
+    max-width: 300px;
+}
+
+.logout {
+    width: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .account-title {
+        font-size: 2rem;
+    }
+
+    .account-content {
+        padding: 20px;
+    }
+
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .info-label {
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .account-container {
+        padding: 20px 10px;
+    }
+
+    .account-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
